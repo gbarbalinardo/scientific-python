@@ -17,10 +17,12 @@ def generate_plot(t):
 fig = plt.figure ()
 
 # prepare a list of times
-times = np.linspace(0., 5., 100.)
+times = np.linspace(0., 5., 200.)
 
 # render the animation
 anim = animation.FuncAnimation(fig, generate_plot, frames=times, blit=True)
                     
-# save           
-anim.save('animation.gif', writer='imagemagick', dpi=100)
+# save, install ffmpeg with `sudo conda install -c conda-forge ffmpeg`
+writer = animation.writers['ffmpeg'](fps=20)
+anim.save('animation.mp4', writer=writer)
+
