@@ -68,6 +68,7 @@ ret
 * debugging part 2: reusing existing code, change variable states, the `?` operator
 * scipy and runge kutta
 * solving a 2 level system with Runge-Kutta
+* Problem: 3LS, see here: http://community.dur.ac.uk/thomas.billam/JQC_Atom_Light_2015-2016_L7.pdf
 
 # Part 2
 * OOP
