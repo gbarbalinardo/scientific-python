@@ -10,8 +10,8 @@ def fun(t, y):
 
     omega = 2 * np.pi
     chi = 10.
-    f = [1j *  omega * y[0] - chi * y[1], chi * y[0] -  omega * y[1]]
-    return f
+    psi = [1j *  omega * y[0] - chi * y[1], chi * y[0] -  omega * y[1]]
+    return psi
 
 # Create an `ode` instance to solve the system of differential
 # equations defined by `fun`, and set the solver method to dopri5 (an alternative more precise RK-8 is dop853)

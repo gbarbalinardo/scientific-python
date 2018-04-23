@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8277245-c9a5-46dc-b816-7020b2366492" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JQC_Atom_Light_2015-2016_L7 (1).pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/animation.mp4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/animation.mpeg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/integrator_2.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/how_to_make_a_gif.py" afterPath="$PROJECT_DIR$/how_to_make_a_gif.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/integrator.py" afterPath="$PROJECT_DIR$/integrator.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

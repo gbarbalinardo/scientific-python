@@ -1,4 +1,4 @@
-# Part 1
+d# Part 1
 ## Intro to Python
 * set up slack channel `http://bit.ly/2qPWzzg`
 * make sure you use `conda` python
@@ -61,13 +61,13 @@ ret
 #### Intro to `numpy`
 * numpy, lapack, blas, mkl
 * basic numpy, the importance of knowing the size of the variable
-* eigenvalues, eigenvectors
+* eigenvalues, eigenvectors, transformation
 * debugging part 1, variable states
 * matrix exp
 * changing a basis set (next time fftw)
-* debugging part 2: change variable states, the `?` operator
+* debugging part 2: reusing existing code, change variable states, the `?` operator
 * scipy and runge kutta
-* solving a 2 level system with runge kutta
+* solving a 2 level system with Runge-Kutta
 
 # Part 2
 * OOP
