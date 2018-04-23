@@ -1,16 +1,16 @@
 # Part 1
 ## Intro to Python
-* set up slack channel `http://bit.ly/2qPWzzg`
+* set up Slack channel http://bit.ly/2qPWzzg
+* download Pycharm https://www.jetbrains.com/pycharm/download
 * make sure you use `conda` python
 
 #### Computer language, intro to architecture
-* example `n**2`
-  1. Python
+* example `n**2` (1) Python
 ```python
 n = 5
 n ** 2
 ```
-  2. Assembly
+(2) Assembly
 ```assembly
 push rbp
 mov rbp, rsp
@@ -20,8 +20,7 @@ imul eax, DWORD PTR [rbp-4]
 pop rbp
 ret
 ```
-* registers and aritmetic units,
-  3. Binary
+* registers and aritmetic units, (3) Binary
 ```binary
 011100000111010101110011011010000010000001110010011000100
 1110000000010100110110101101111011101100010000001110010011
