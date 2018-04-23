@@ -1,4 +1,4 @@
-d# Part 1
+# Part 1
 ## Intro to Python
 * set up slack channel `http://bit.ly/2qPWzzg`
 * make sure you use `conda` python
