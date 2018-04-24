@@ -1,29 +1,33 @@
 import numpy as np
-from scipy.linalg import expm
+# from scipy.linalg import expm
 import matplotlib.pyplot as plt
 
-max_time = 5.
-interaction = 0.1
-epsilon = 1.
-n_times = 100
+def expm(matrix):
+	''' Manually compute the exp of a matrix diagonalizing it'''
+	eigvals, transformation = np.linalg.eig (matrix)
+	return transformation.dot (np.exp(np.diag(eigvals))).dot (np.linalg.inv (transformation))
 
+# constant go at the beginning
+MAX_TIME = 20.
+INTERACTION = 0.1
+EPSILON = 1.
+N_TIMES = 200
+
+# Let's define the system here
 psi_0 = np.array([0, 1])
-times = np.linspace(0., max_time, n_times)
-psi_t = np.zeros((n_times, 2)).astype(np.complex)
-hamiltonian = np.array ([[epsilon, interaction], [interaction, -epsilon]])
+times = np.linspace(0., MAX_TIME, N_TIMES)
+psi_t = np.zeros((N_TIMES, 2)).astype(np.complex)
+hamiltonian = np.array ([[EPSILON, INTERACTION], [INTERACTION, -EPSILON]])
 energies, transformation = np.linalg.eig (hamiltonian)
+
+# This is a test to check that we are diagonalizing the hamiltonian correctly
 print(np.diag(energies) - np.linalg.inv(transformation).dot(hamiltonian).dot(transformation))
 
-def expm(matrix):
-	eigvals, transformation = np.linalg.eig (matrix)
-	return transformation.dot (np.exp(eigvals)).dot (np.linalg.inv (transformation))
-
-
-# print(np.diag(energies) - expm)
-
+# For each time calculate the time evolution
 for t in range(np.shape(times)[0]):
 	time = times[t]
 	psi_t[t] = expm(1j * hamiltonian * time).dot(psi_0)
 	
-plt.plot(psi_t.dot(psi_0).real)
+# Here we plot the real part of the wavefunction
+plt.plot(times, psi_t.dot(psi_0).real)
 plt.show()
