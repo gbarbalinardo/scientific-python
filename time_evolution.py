@@ -62,10 +62,6 @@ plt.show()
 
 
 psi_t = np.zeros((N_TIMES, 2)).astype(np.complex)
-energies, transformation = np.linalg.eig(hamiltonian())
-
-# This is a test to check that we are diagonalizing the hamiltonian correctly
-print(np.diag(energies) - np.linalg.inv(transformation).dot(hamiltonian()).dot(transformation))
 
 # For each time calculate the time evolution
 for t in range(np.shape(times)[0]):
