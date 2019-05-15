@@ -9,10 +9,12 @@ EPSILON = 1.
 
 
 def hamiltonian(t=0):
+    velocity = 1.
+    EPSILON = velocity * t
     return np.array([[EPSILON, INTERACTION], [INTERACTION, -EPSILON]])
 
 def rhs(t, psi):
-    return - 1.0j / HBAR * hamiltonian().dot(psi)
+    return - 1.0j / HBAR * hamiltonian(t).dot(psi)
 
 def plot_evolution(times, psi_t):
     plt.plot(times, psi_t[:, 0].real, label='psi_0_real')
@@ -40,17 +42,7 @@ MAX_TIME = 10
 N_TIMES = 100
 times = np.linspace(t0, MAX_TIME, N_TIMES)
 
-# Exact solution
-psi_t = np.zeros((N_TIMES, 2)).astype(np.complex)
 
-# For each time calculate the time evolution
-for t in range(np.shape(times)[0]):
-    time = times[t]
-    psi_t[t] = expm(-1j * hamiltonian() * time).dot(psi_0)
-
-
-# Plot the solution...
-plot_evolution(times, psi_t)
 
 # Crank Nicolson propagator
 psi_t = np.zeros((N_TIMES, 2)).astype(np.complex)
@@ -59,8 +51,8 @@ ones = np.eye(hamiltonian().shape[0])
 for t in range(1, np.shape(times)[0]):
     time = times[t]
     delta_t = times[t] - times[t-1]
-    propagator = np.linalg.inv(ones + 1j * delta_t / 2  * hamiltonian())
-    propagator = propagator.dot(ones - 1j * delta_t / 2  * hamiltonian())
+    propagator = np.linalg.inv(ones + 1j * delta_t / 2  * hamiltonian(time - delta_t / 2.0))
+    propagator = propagator.dot(ones - 1j * delta_t / 2  * hamiltonian(time - delta_t / 2.0))
     psi_t[t] = propagator.dot(psi_t[t-1])
 
 plot_evolution(times, psi_t)
