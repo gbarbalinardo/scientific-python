@@ -75,3 +75,26 @@ plt.xlabel('t')
 plt.grid(True)
 plt.legend()
 plt.show()
+
+# Crank Nicolson propagator
+psi_t = np.zeros((N_TIMES, 2)).astype(np.complex)
+psi_t[0] = psi_0
+ones = np.eye(hamiltonian().shape[0])
+for t in range(1, np.shape(times)[0]):
+    time = times[t]
+    delta_t = times[t] - times[t-1]
+    propagator = np.linalg.inv(ones + 1j * delta_t / 2  * hamiltonian())
+    propagator = propagator.dot(ones - 1j * delta_t / 2  * hamiltonian())
+    psi_t[t] = propagator.dot(psi_t[t-1])
+
+# Plot the solution...
+plt.plot(times, psi_t[:, 0].real, label='psi_0_real')
+plt.plot(times, psi_t[:, 0].imag, label='psi_0_imag')
+plt.plot(times, psi_t[:, 1].real, label='psi_1_real')
+plt.plot(times, psi_t[:, 1].imag, label='psi_1_imag')
+plt.plot(times, psi_t.dot(psi_t.T.conj()).diagonal().real, label='normalization')
+plt.xlabel('t')
+plt.grid(True)
+plt.legend()
+plt.show()
+
